@@ -1,2 +1,3 @@
 # Battleship
-Dev Project
+Dev Project 1 - Major Project
+
