@@ -82,6 +82,7 @@
     <Compile Include="src\Model\ISeaGrid.cs" />
     <Compile Include="src\Model\Player.cs" />
     <Compile Include="src\Model\ResultOfAttack.cs" />
+    <Compile Include="src\Model\SeaGrid.cs" />
     <Compile Include="src\Model\SeaGridAdapter.cs" />
     <Compile Include="src\Model\Ship.cs" />
     <Compile Include="src\Model\ShipName.cs" />
