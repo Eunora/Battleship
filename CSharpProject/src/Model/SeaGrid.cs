@@ -37,7 +37,7 @@ public class SeaGrid : ISeaGrid
         }
     }
 
-    public TileView getItem(int x, int y)
+    public TileView Item(int x, int y)
     {
         return _GameTiles[x, y].View;
     }
@@ -48,11 +48,12 @@ public class SeaGrid : ISeaGrid
         {
             foreach(Ship s in _Ships.Values)
             {
-                if(!s.Deployed)
+                if(!s.IsDeployed)
                 {
                     return false;
                 }
             }
+            return false;
         }
     }
 
