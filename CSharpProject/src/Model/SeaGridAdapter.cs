@@ -3,17 +3,6 @@
 /// presented it changes the view into a sea tile instead of a ship tile.
 /// </summary>
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Security;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.VisualBasic;
 
 public class SeaGridAdapter : ISeaGrid
 {
@@ -46,17 +35,14 @@ public class SeaGridAdapter : ISeaGrid
     /// <param name="x">tile x coordinate</param>
     /// <param name="y">tile y coordinate</param>
     /// <returns>a tile, either what it actually is, or if it was a ship then return a sea tile</returns>
-    public TileView Item
+    public TileView Item(int x, int y)
     {
-        get
-        {
             TileView result = _MyGrid.Item(x, y);
 
             if (result == TileView.Ship)
                 return TileView.Sea;
             else
                 return result;
-        }
     }
 
     /// <summary>
