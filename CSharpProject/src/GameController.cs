@@ -1,26 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Security;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.VisualBasic;
 using SwinGameSDK;
 
-/// <summary>
+// The GameController is responsible for controlling the game,
+// managing user input, and displaying the current state of the game. 
 
-/// The GameController is responsible for controlling the game,
-
-/// managing user input, and displaying the current state of the
-
-/// game.
-
-/// </summary>
 public static class GameController
 {
     private static BattleShipsGame _theGame;
@@ -71,7 +55,7 @@ public static class GameController
         }
     }
 
-    public static GameController()
+    static GameController()
     {
         // bottom state will be quitting. If player exits main menu then the game is over
         _state.Push(GameState.Quitting);
@@ -97,13 +81,13 @@ public static class GameController
         // create the players
         switch (_aiSetting)
         {
-            case object _ when AIOption.Medium:
+            case AIOption.Medium:
                 {
                     _ai = new AIMediumPlayer(_theGame);
                     break;
                 }
 
-            case object _ when AIOption.Hard:
+            case AIOption.Hard:
                 {
                     _ai = new AIHardPlayer(_theGame);
                     break;
@@ -151,7 +135,7 @@ public static class GameController
     private static void PlayHitSequence(int row, int column, bool showAnimation)
     {
         if (showAnimation)
-            AddExplosion(row, column);
+            UtilityFunction.AddExplosion(row, column);
 
         Audio.PlaySoundEffect(GameSound("Hit"));
 

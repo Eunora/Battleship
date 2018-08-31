@@ -8,17 +8,12 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Security;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using Microsoft.VisualBasic;
 using SwinGameSDK;
 
-/// <summary>
-
-/// The DeploymentController controls the players actions
-
-/// during the deployment phase.
-
-/// </summary>
+// The DeploymentController controls the players actions
+// during the deployment phase.
 static class DeploymentController
 {
     private const int SHIPS_TOP = 98;
@@ -55,21 +50,21 @@ static class DeploymentController
     /// </remarks>
     public static void HandleDeploymentInput()
     {
-        if (SwinGame.KeyTyped(KeyCode.VK_ESCAPE))
+        if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE))
             AddNewState(GameState.ViewingGameMenu);
 
-        if (SwinGame.KeyTyped(KeyCode.VK_UP) | SwinGame.KeyTyped(KeyCode.VK_DOWN))
+        if (SwinGame.KeyTyped(KeyCode.vk_UP) | SwinGame.KeyTyped(KeyCode.vk_DOWN))
             _currentDirection = Direction.UpDown;
-        if (SwinGame.KeyTyped(KeyCode.VK_LEFT) | SwinGame.KeyTyped(KeyCode.VK_RIGHT))
+        if (SwinGame.KeyTyped(KeyCode.vk_LEFT) | SwinGame.KeyTyped(KeyCode.vk_RIGHT))
             _currentDirection = Direction.LeftRight;
 
-        if (SwinGame.KeyTyped(KeyCode.VK_R))
+        if (SwinGame.KeyTyped(KeyCode.vk_r))
             HumanPlayer.RandomizeDeployment();
-
+       
         if (SwinGame.MouseClicked(MouseButton.LeftButton))
         {
             ShipName selected;
-            selected = GetShipMouseIsOver[];
+            selected = GetShipMouseIsOver();
             if (selected != ShipName.None)
                 _selectedShip = selected;
             else
@@ -141,7 +136,7 @@ static class DeploymentController
         foreach (ShipName sn in Enum.GetValues(typeof(ShipName)))
         {
             int i;
-            i = Int(sn) - 1;
+            i = (int)sn - 1;
             if (i >= 0)
             {
                 if (sn == _selectedShip)
@@ -166,7 +161,7 @@ static class DeploymentController
         foreach (ShipName sn in Enum.GetValues(typeof(ShipName)))
         {
             int i;
-            i = Int(sn) - 1;
+            i = (int)sn - 1;
 
             if (IsMouseInRectangle(SHIPS_LEFT, SHIPS_TOP + i * SHIPS_HEIGHT, SHIPS_WIDTH, SHIPS_HEIGHT))
                 return sn;
