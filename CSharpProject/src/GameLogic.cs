@@ -1,4 +1,6 @@
-﻿static class GameLogic
+﻿using SwinGameSDK;
+
+static class GameLogic
 {
     public static void Main()
     {

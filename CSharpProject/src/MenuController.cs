@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Security;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using Microsoft.VisualBasic;
 using SwinGameSDK;
 
@@ -102,7 +102,7 @@ static class MenuController
     /// <returns>false if a clicked missed the buttons. This can be used to check prior menus.</returns>
     private static bool HandleMenuInput(int menu, int level, int xOffset)
     {
-        if (SwinGame.KeyTyped(KeyCode.VK_ESCAPE))
+        if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE))
         {
             EndCurrentState();
             return true;
@@ -189,7 +189,7 @@ static class MenuController
     private static void DrawButtons(int menu, int level, int xOffset)
     {
         int btnTop;
-        Rectangle toDraw;
+        Rectangle toDraw = new Rectangle();
 
         btnTop = MENU_TOP - (MENU_GAP + BUTTON_HEIGHT) * level;
         int i;

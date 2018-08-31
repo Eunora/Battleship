@@ -51,7 +51,7 @@ static class DeploymentController
     public static void HandleDeploymentInput()
     {
         if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE))
-            AddNewState(GameState.ViewingGameMenu);
+            GameController.AddNewState(GameState.ViewingGameMenu);
 
         if (SwinGame.KeyTyped(KeyCode.vk_UP) | SwinGame.KeyTyped(KeyCode.vk_DOWN))
             _currentDirection = Direction.UpDown;
@@ -59,7 +59,7 @@ static class DeploymentController
             _currentDirection = Direction.LeftRight;
 
         if (SwinGame.KeyTyped(KeyCode.vk_r))
-            HumanPlayer.RandomizeDeployment();
+            GameController.HumanPlayer.RandomizeDeployment();
        
         if (SwinGame.MouseClicked(MouseButton.LeftButton))
         {
@@ -70,14 +70,14 @@ static class DeploymentController
             else
                 DoDeployClick();
 
-            if (HumanPlayer.ReadyToDeploy & IsMouseInRectangle(PLAY_BUTTON_LEFT, TOP_BUTTONS_TOP, PLAY_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT))
-                EndDeployment();
-            else if (IsMouseInRectangle(UP_DOWN_BUTTON_LEFT, TOP_BUTTONS_TOP, DIR_BUTTONS_WIDTH, TOP_BUTTONS_HEIGHT))
+            if (GameController.HumanPlayer.ReadyToDeploy & UtilityFunctions.IsMouseInRectangle(PLAY_BUTTON_LEFT, TOP_BUTTONS_TOP, PLAY_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT))
+                GameController.EndDeployment();
+            else if (UtilityFunctions.IsMouseInRectangle(UP_DOWN_BUTTON_LEFT, TOP_BUTTONS_TOP, DIR_BUTTONS_WIDTH, TOP_BUTTONS_HEIGHT))
                 _currentDirection = Direction.LeftRight;
-            else if (IsMouseInRectangle(LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP, DIR_BUTTONS_WIDTH, TOP_BUTTONS_HEIGHT))
+            else if (UtilityFunctions.IsMouseInRectangle(LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP, DIR_BUTTONS_WIDTH, TOP_BUTTONS_HEIGHT))
                 _currentDirection = Direction.LeftRight;
-            else if (IsMouseInRectangle(RANDOM_BUTTON_LEFT, TOP_BUTTONS_TOP, RANDOM_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT))
-                HumanPlayer.RandomizeDeployment();
+            else if (UtilityFunctions.IsMouseInRectangle(RANDOM_BUTTON_LEFT, TOP_BUTTONS_TOP, RANDOM_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT))
+                GameController.HumanPlayer.RandomizeDeployment();
         }
     }
 
@@ -97,22 +97,22 @@ static class DeploymentController
 
         // Calculate the row/col clicked
         int row, col;
-        row = Convert.ToInt32(Math.Floor((mouse.Y) / (double)(CELL_HEIGHT + CELL_GAP)));
-        col = Convert.ToInt32(Math.Floor((mouse.X - FIELD_LEFT) / (double)(CELL_WIDTH + CELL_GAP)));
+        row = Convert.ToInt32(Math.Floor((mouse.Y) / (double)(UtilityFunctions.CELL_HEIGHT + UtilityFunctions.CELL_GAP)));
+        col = Convert.ToInt32(Math.Floor((mouse.X - UtilityFunctions.FIELD_LEFT) / (double)(UtilityFunctions.CELL_WIDTH + UtilityFunctions.CELL_GAP)));
 
-        if (row >= 0 & row < HumanPlayer.PlayerGrid.Height)
+        if (row >= 0 & row < GameController.HumanPlayer.PlayerGrid.Height)
         {
-            if (col >= 0 & col < HumanPlayer.PlayerGrid.Width)
+            if (col >= 0 & col < GameController.HumanPlayer.PlayerGrid.Width)
             {
                 // if in the area try to deploy
                 try
                 {
-                    HumanPlayer.PlayerGrid.MoveShip(row, col, _selectedShip, _currentDirection);
+                    GameController.HumanPlayer.PlayerGrid.MoveShip(row, col, _selectedShip, _currentDirection);
                 }
                 catch (Exception ex)
                 {
-                    Audio.PlaySoundEffect(GameSound("Error"));
-                    Message = ex.Message;
+                    Audio.PlaySoundEffect(GameResources.GameSound("Error"));
+                    UtilityFunctions.Message = ex.Message;
                 }
             }
         }
@@ -124,13 +124,13 @@ static class DeploymentController
     /// </summary>
     public static void DrawDeployment()
     {
-        DrawField(HumanPlayer.PlayerGrid, HumanPlayer, true);
+        UtilityFunctions.DrawField(GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer, true);
 
         // Draw the Left/Right and Up/Down buttons
         if (_currentDirection == Direction.LeftRight)
-            SwinGame.DrawBitmap(GameImage("LeftRightButton"), LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP);
+            SwinGame.DrawBitmap(GameResources.GameImage("LeftRightButton"), LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP);
         else
-            SwinGame.DrawBitmap(GameImage("UpDownButton"), LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP);
+            SwinGame.DrawBitmap(GameResources.GameImage("UpDownButton"), LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP);
 
         // DrawShips
         foreach (ShipName sn in Enum.GetValues(typeof(ShipName)))
@@ -140,16 +140,16 @@ static class DeploymentController
             if (i >= 0)
             {
                 if (sn == _selectedShip)
-                    SwinGame.DrawBitmap(GameImage("SelectedShip"), SHIPS_LEFT, SHIPS_TOP + i * SHIPS_HEIGHT);
+                    SwinGame.DrawBitmap(GameResources.GameImage("SelectedShip"), SHIPS_LEFT, SHIPS_TOP + i * SHIPS_HEIGHT);
             }
         }
 
-        if (HumanPlayer.ReadyToDeploy)
-            SwinGame.DrawBitmap(GameImage("PlayButton"), PLAY_BUTTON_LEFT, TOP_BUTTONS_TOP);
+        if (GameController.HumanPlayer.ReadyToDeploy)
+            SwinGame.DrawBitmap(GameResources.GameImage("PlayButton"), PLAY_BUTTON_LEFT, TOP_BUTTONS_TOP);
 
-        SwinGame.DrawBitmap(GameImage("RandomButton"), RANDOM_BUTTON_LEFT, TOP_BUTTONS_TOP);
+        SwinGame.DrawBitmap(GameResources.GameImage("RandomButton"), RANDOM_BUTTON_LEFT, TOP_BUTTONS_TOP);
 
-        DrawMessage();
+        UtilityFunctions.DrawMessage();
     }
 
     /// <summary>
@@ -163,7 +163,7 @@ static class DeploymentController
             int i;
             i = (int)sn - 1;
 
-            if (IsMouseInRectangle(SHIPS_LEFT, SHIPS_TOP + i * SHIPS_HEIGHT, SHIPS_WIDTH, SHIPS_HEIGHT))
+            if (UtilityFunctions.IsMouseInRectangle(SHIPS_LEFT, SHIPS_TOP + i * SHIPS_HEIGHT, SHIPS_WIDTH, SHIPS_HEIGHT))
                 return sn;
         }
 

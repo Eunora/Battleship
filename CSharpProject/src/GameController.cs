@@ -135,7 +135,7 @@ public static class GameController
     private static void PlayHitSequence(int row, int column, bool showAnimation)
     {
         if (showAnimation)
-            UtilityFunction.AddExplosion(row, column);
+            UtilityFunctions.AddExplosion(row, column);
 
         Audio.PlaySoundEffect(GameSound("Hit"));
 

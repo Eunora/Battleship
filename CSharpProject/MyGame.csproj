@@ -92,7 +92,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="lib\*.dll" />
-    <Content Include="src\Model\SeaGrid.vb" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\*">
