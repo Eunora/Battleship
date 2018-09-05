@@ -12,11 +12,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualBasic;
 using SwinGameSDK;
 
-/// <summary>
-
-/// The battle phase is handled by the DiscoveryController.
-
-/// </summary>
+// summary, The battle phase is handled by the DiscoveryController.
 static class DiscoveryController
 {
 

@@ -65,44 +65,35 @@ public static class GameResources
         NewMusic("Background", "horrordrone.mp3");
     }
 
-    /// <summary>
-    /// Gets a Font Loaded in the Resources
-    /// </summary>
-    /// <param name="font">Name of Font</param>
-    /// <returns>The Font Loaded with this Name</returns>
-
+    // summary, Gets a Font Loaded in the Resources
+    // <param name="font">Name of Font</param>
+    // returns, The Font Loaded with this Name
     public static Font GameFont(string font)
     {
         return _Fonts[font];
     }
 
-    /// <summary>
-    /// Gets an Image loaded in the Resources
-    /// </summary>
-    /// <param name="image">Name of image</param>
-    /// <returns>The image loaded with this name</returns>
+    // summary, Gets an Image loaded in the Resources
+    // <param name="image">Name of image</param>
+    // returns, The image loaded with this name
 
     public static Bitmap GameImage(string image)
     {
         return _Images[image];
     }
 
-    /// <summary>
-    /// Gets an sound loaded in the Resources
-    /// </summary>
-    /// <param name="sound">Name of sound</param>
-    /// <returns>The sound with this name</returns>
+    // summary, Gets an sound loaded in the Resources
+    // <param name="sound">Name of sound</param>
+    // returns, The sound with this name
 
     public static SoundEffect GameSound(string sound)
     {
         return _Sounds[sound];
     }
 
-    /// <summary>
-    /// Gets the music loaded in the Resources
-    /// </summary>
-    /// <param name="music">Name of music</param>
-    /// <returns>The music with this name</returns>
+    // summary, Gets the music loaded in the Resources
+    // <param name="music">Name of music</param>
+    // returns, The music with this name
 
     public static Music GameMusic(string music)
     {
@@ -121,11 +112,9 @@ public static class GameResources
     private static Font _LoadingFont;
     private static SoundEffect _StartSound;
 
-    /// <summary>
-    /// The Resources Class stores all of the Games Media Resources, such as Images, Fonts
-    /// Sounds, Music.
-    /// </summary>
-
+    /* summary, The Resources Class stores all of the Games Media Resources, 
+		such as Images, Fonts Sounds, Music.
+	*/
     public static void LoadResources()
     {
         int width, height;
@@ -159,6 +148,7 @@ public static class GameResources
         EndLoadingScreen(width, height);
     }
 
+	//display the loading screen
     private static void ShowLoadingScreen()
     {
         _Background = SwinGame.LoadBitmap(SwinGame.PathToResource("SplashBack.png", ResourceKind.BitmapResource));
@@ -176,6 +166,7 @@ public static class GameResources
         PlaySwinGameIntro();
     }
 
+	//display the game introduction 
     private static void PlaySwinGameIntro()
     {
         const int ANI_CELL_COUNT = 11;
@@ -224,6 +215,7 @@ public static class GameResources
         SwinGame.ProcessEvents();
     }
 
+	//free all resources that have load from the beginning of the game
     private static void EndLoadingScreen(int width, int height)
     {
         SwinGame.ProcessEvents();
@@ -239,50 +231,58 @@ public static class GameResources
         SwinGame.ChangeScreenSize(width, height);
     }
 
+	//add new font to the dictionary
     private static void NewFont(string fontName, string filename, int size)
     {
         _Fonts.Add(fontName, SwinGame.LoadFont(SwinGame.PathToResource(filename, ResourceKind.FontResource), size));
     }
 
+	//add new image to the dictionary
     private static void NewImage(string imageName, string filename)
     {
         _Images.Add(imageName, SwinGame.LoadBitmap(SwinGame.PathToResource(filename, ResourceKind.BitmapResource)));
     }
-
+	//add new image that is transparent to the dictionary
     private static void NewTransparentColorImage(string imageName, string fileName, Color transColor)
     {
         _Images.Add(imageName, SwinGame.LoadBitmap(SwinGame.PathToResource(fileName, ResourceKind.BitmapResource)));
     }
 
+	//call the NewTransparentColorImage method
     private static void NewTransparentColourImage(string imageName, string fileName, Color transColor)
     {
         NewTransparentColorImage(imageName, fileName, transColor);
     }
-
+	
+	//add new sound to the dictionary
     private static void NewSound(string soundName, string filename)
     {
         _Sounds.Add(soundName, Audio.LoadSoundEffect(SwinGame.PathToResource(filename, ResourceKind.SoundResource)));
     }
 
+	//add new music to the dictionary
     private static void NewMusic(string musicName, string filename)
     {
         _Music.Add(musicName, Audio.LoadMusic(SwinGame.PathToResource(filename, ResourceKind.SoundResource)));
     }
 
+	//release(free) all the fonts
     private static void FreeFonts()
     {
         Font obj;
         foreach (var obj in _Fonts.Values)
             SwinGame.FreeFont(obj);
     }
-
+	
+	//release(free) all the images
     private static void FreeImages()
     {
         Bitmap obj;
         foreach (var obj in _Images.Values)
             SwinGame.FreeBitmap(obj);
     }
-
+	
+	//release(free) all the sounds
     private static void FreeSounds()
     {
         SoundEffect obj;
@@ -290,13 +290,15 @@ public static class GameResources
             Audio.FreeSoundEffect(obj);
     }
 
+	//release(free) all the music
     private static void FreeMusic()
     {
         Music obj;
         foreach (var obj in _Music.Values)
             Audio.FreeMusic(obj);
     }
-
+	
+	//calling all the method that will release the fonts, images, sound, and image.
     public static void FreeResources()
     {
         FreeFonts();
