@@ -1,13 +1,9 @@
 ﻿public enum Direction
 {
-    /// <summary>
-    /// The ship is oriented left/right
-    /// </summary>
+    // <summary> The ship is oriented left/right
     LeftRight,
 
-    /// <summary>
-    /// The ship is oriented up/down
-    /// </summary>
+    // <summary> The ship is oriented up/down
     UpDown
 }
 

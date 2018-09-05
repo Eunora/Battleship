@@ -1,18 +1,12 @@
 ﻿public enum AIOption
 {
-    /// <summary>
-    /// Easy, total random shooting
-    /// </summary>
+    // summary : Easy, total random shooting
     Easy,
 
-    /// <summary>
-    /// Medium, marks squares around hits
-    /// </summary>
+    // summary : Medium, marks squares around hits
     Medium,
 
-    /// <summary>
-    /// As medium, but removes shots once it misses
-    /// </summary>
+    // summary : As medium, but removes shots once it misses
     Hard
 }
 
