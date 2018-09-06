@@ -131,6 +131,9 @@ public class Player : IEnumerable<Ship>
         }
     }
 
+    // <summary> Total number of shots that hit
+    // <value>hit count</value>
+    // <returns>the number of shots that have hit ships</returns>
     public int Hits
     {
         get
@@ -150,6 +153,9 @@ public class Player : IEnumerable<Ship>
         }
     }
 
+    // <summary> The score that after hit or destroyed the ships
+    // <value>score count</value>
+    // <returns>Score</returns>
     public int Score
     {
         get

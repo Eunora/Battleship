@@ -68,6 +68,9 @@ public class Ship
         }
     }
 
+    // <summary> The column location of the ship
+    // <value>The topmost location of the ship</value>
+    // <returns>the column of the ship</returns>
     public int Column
     {
         get
@@ -76,6 +79,9 @@ public class Ship
         }
     }
 
+    // <summary> The direction location of the ship
+    // <value>The topmost location of the ship</value>
+    // <returns>the direction of the ship</returns>
     public Direction Direction
     {
         get
@@ -122,6 +128,7 @@ public class Ship
         }
     }
 
+    // <summary> IsDestroyed returns if the ships is destroyed, if its destroyed it has more than 0 tiles
     public bool IsDestroyed
     {
         get
