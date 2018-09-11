@@ -1,7 +1,4 @@
-﻿/// <summary>
-/// Player has its own _PlayerGrid, and can see an _EnemyGrid, it can also check if
-/// all ships are deployed and if all ships are detroyed. A Player can also attach.
-/// </summary>
+﻿// <summary> Player has its own _PlayerGrid, and can see an _EnemyGrid, it can also check if all ships are deployed and if all ships are detroyed. A Player can also attach.
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -28,11 +25,9 @@ public class Player : IEnumerable<Ship>
     private int _hits;
     private int _misses;
 
-    /// <summary>
-    /// Returns the game that the player is part of.
-    /// </summary>
-    /// <value>The game</value>
-    /// <returns>The game that the player is playing</returns>
+    // <summary> Returns the game that the player is part of.
+    // <value>The game</value>
+    // <returns>The game that the player is playing</returns>
     public BattleShipsGame Game
     {
         get
@@ -45,10 +40,8 @@ public class Player : IEnumerable<Ship>
         }
     }
 
-    /// <summary>
-    /// Sets the grid of the enemy player
-    /// </summary>
-    /// <value>The enemy's sea grid</value>
+    // <summary> Sets the grid of the enemy player
+    // <value>The enemy's sea grid</value>
     public ISeaGrid Enemy
     {
         set
@@ -71,9 +64,7 @@ public class Player : IEnumerable<Ship>
         RandomizeDeployment();
     }
 
-    /// <summary>
-    /// The EnemyGrid is a ISeaGrid because you shouldn't be allowed to see the enemies ships
-    /// </summary>
+    // <summary> The EnemyGrid is a ISeaGrid because you shouldn't be allowed to see the enemies ships
     public ISeaGrid EnemyGrid
     {
         get
@@ -86,9 +77,7 @@ public class Player : IEnumerable<Ship>
         }
     }
 
-    /// <summary>
-    /// The PlayerGrid is just a normal SeaGrid where the players ships can be deployed and seen
-    /// </summary>
+    // <summary> The PlayerGrid is just a normal SeaGrid where the players ships can be deployed and seen
     public SeaGrid PlayerGrid
     {
         get
@@ -97,9 +86,7 @@ public class Player : IEnumerable<Ship>
         }
     }
 
-    /// <summary>
-    /// ReadyToDeploy returns true if all ships are deployed
-    /// </summary>
+    // <summary> ReadyToDeploy returns true if all ships are deployed
     public bool ReadyToDeploy
     {
         get
@@ -117,13 +104,11 @@ public class Player : IEnumerable<Ship>
         }
     }
 
-    /// <summary>
-    /// Returns the Player's ship with the given name.
-    /// </summary>
-    /// <param name="name">the name of the ship to return</param>
-    /// <value>The ship</value>
-    /// <returns>The ship with the indicated name</returns>
-    /// <remarks>The none ship returns nothing/null</remarks>
+    // <summary> Returns the Player's ship with the given name.
+    // <param name="name">the name of the ship to return</param>
+    // <value>The ship</value>
+    // <returns>The ship with the indicated name</returns>
+    // <remarks>The none ship returns nothing/null</remarks>
     public Ship Ship
     {
         get
@@ -135,11 +120,9 @@ public class Player : IEnumerable<Ship>
         }
     }
 
-    /// <summary>
-    /// The number of shots the player has made
-    /// </summary>
-    /// <value>shots taken</value>
-    /// <returns>teh number of shots taken</returns>
+    // <summary> The number of shots the player has made
+    // <value>shots taken</value>
+    // <returns>teh number of shots taken</returns>
     public int Shots
     {
         get
@@ -148,6 +131,9 @@ public class Player : IEnumerable<Ship>
         }
     }
 
+    // <summary> Total number of shots that hit
+    // <value>hit count</value>
+    // <returns>the number of shots that have hit ships</returns>
     public int Hits
     {
         get
@@ -156,11 +142,9 @@ public class Player : IEnumerable<Ship>
         }
     }
 
-    /// <summary>
-    /// Total number of shots that missed
-    /// </summary>
-    /// <value>miss count</value>
-    /// <returns>the number of shots that have missed ships</returns>
+    // <summary> Total number of shots that missed
+    // <value>miss count</value>
+    // <returns>the number of shots that have missed ships</returns>
     public int Missed
     {
         get
@@ -169,6 +153,9 @@ public class Player : IEnumerable<Ship>
         }
     }
 
+    // <summary> The score that after hit or destroyed the ships
+    // <value>score count</value>
+    // <returns>Score</returns>
     public int Score
     {
         get
@@ -180,11 +167,8 @@ public class Player : IEnumerable<Ship>
         }
     }
 
-    /// <summary>
-    /// Makes it possible to enumerate over the ships the player
-    /// has.
-    /// </summary>
-    /// <returns>A Ship enumerator</returns>
+    // <summary> Makes it possible to enumerate over the ships the player has.
+    // <returns>A Ship enumerator</returns>
     public IEnumerator<Ship> GetShipEnumerator()
     {
         Ship[] result = new Ship[_Ships.Values.Count + 1];
@@ -195,10 +179,7 @@ public class Player : IEnumerable<Ship>
         return lst.GetEnumerator();
     }
 
-    /// <summary>
-    /// Makes it possible to enumerate over the ships the player
-    /// has.
-    /// </summary>
+    // <summary> Makes it possible to enumerate over the ships the player has.
     /// <returns>A Ship enumerator</returns>
     public IEnumerator GetEnumerator()
     {
@@ -210,18 +191,14 @@ public class Player : IEnumerable<Ship>
         return lst.GetEnumerator();
     }
 
-    /// <summary>
-    /// Vitual Attack allows the player to shoot
-    /// </summary>
+    // <summary> Vitual Attack allows the player to shoot
     public virtual AttackResult Attack()
     {
-        // human does nothing here...
+        //sumamry : human does nothing here...
         return null/* TODO Change to default(_) if this is not a reference type */;
     }
 
-    /// <summary>
-    /// Shoot at a given row/column
-    /// </summary>
+    // <summary> Shoot at a given row/column
     /// <param name="row">the row to attack</param>
     /// <param name="col">the column to attack</param>
     /// <returns>the result of the attack</returns>
@@ -255,7 +232,7 @@ public class Player : IEnumerable<Ship>
         bool placementSuccessful;
         Direction heading;
 
-        // for each ship to deploy in shipist
+        //summary: for each ship to deploy in shipist
         foreach (ShipName shipToPlace in Enum.GetValues(typeof(ShipName)))
         {
             if (shipToPlace == ShipName.None)
