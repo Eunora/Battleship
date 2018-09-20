@@ -1,33 +1,25 @@
-﻿/// <summary>
-/// The SeaGridAdapter allows for the change in a sea grid view. Whenever a ship is
-/// presented it changes the view into a sea tile instead of a ship tile.
-/// </summary>
+﻿// <summary>The SeaGridAdapter allows for the change in a sea grid view. Whenever a ship is presented it changes the view into a sea tile instead of a ship tile.
 using System;
 
 public class SeaGridAdapter : ISeaGrid
 {
     private SeaGrid _MyGrid;
 
-    /// <summary>
-    /// Create the SeaGridAdapter, with the grid, and it will allow it to be changed
-    /// </summary>
-    /// <param name="grid">the grid that needs to be adapted</param>
+    // <summary> Create the SeaGridAdapter, with the grid, and it will allow it to be changed
+    // <param name="grid">the grid that needs to be adapted</param>
     public SeaGridAdapter(SeaGrid grid)
     {
         _MyGrid = grid;
         _MyGrid.Changed += new EventHandler(MyGrid_Changed);
     }
 
-    /// <summary>
-    /// MyGrid_Changed causes the grid to be redrawn by raising a changed event
-    /// </summary>
-    /// <param name="sender">the object that caused the change</param>
-    /// <param name="e">what needs to be redrawn</param>
+    // <summary> MyGrid_Changed causes the grid to be redrawn by raising a changed event
+    // <param name="sender">the object that caused the change</param>
+    // <param name="e">what needs to be redrawn</param>
     private void MyGrid_Changed(object sender, EventArgs e)
     {
         Changed?.Invoke(this, e);
     }
-
 
     /// <summary>
     /// Changes the discovery grid. Where there is a ship we will sea water
@@ -45,14 +37,10 @@ public class SeaGridAdapter : ISeaGrid
                 return result;
     }
 
-    /// <summary>
-    /// Indicates that the grid has been changed
-    /// </summary>
+    // <summary> Indicates that the grid has been changed
     public event EventHandler Changed;
 
-    /// <summary>
-    /// Get the width of a tile
-    /// </summary>
+    // <summary> Get the width of a tile
     public int Width
     {
         get
@@ -61,9 +49,7 @@ public class SeaGridAdapter : ISeaGrid
         }
     }
 
-    /// <summary>
-    /// Get the height of the tile
-    /// </summary>
+    // <summary> Get the height of the tile
     public int Height
     {
         get
@@ -72,12 +58,10 @@ public class SeaGridAdapter : ISeaGrid
         }
     }
 
-    /// <summary>
-    /// HitTile calls oppon _MyGrid to hit a tile at the row, col
-    /// </summary>
-    /// <param name="row">the row its hitting at</param>
-    /// <param name="col">the column its hitting at</param>
-    /// <returns>The result from hitting that tile</returns>
+    // <summary> HitTile calls oppon _MyGrid to hit a tile at the row, col
+    // <param name="row">the row its hitting at</param>
+    // <param name="col">the column its hitting at</param>
+    // <returns>The result from hitting that tile</returns>
     public AttackResult HitTile(int row, int col)
     {
         return _MyGrid.HitTile(row, col);

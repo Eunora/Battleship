@@ -12,20 +12,13 @@ using System.Threading.Tasks;
 using Microsoft.VisualBasic;
 using SwinGameSDK;
 
-/// <summary>
-
-/// The EndingGameController is responsible for managing the interactions at the end
-
-/// of a game.
-
-/// </summary>
-
+/* summary, The EndingGameController is responsible for managing the
+	interactions at the end of a game.
+*/
 static class EndingGameController
 {
 
-    /// <summary>
-    /// Draw the end of the game screen, shows the win/lose state
-    /// </summary>
+    // summary, Draw the end of the game screen, shows the win/lose state
     public static void DrawEndOfGame()
     {
         Rectangle toDraw;
@@ -47,10 +40,9 @@ static class EndingGameController
         SwinGame.DrawTextLines(whatShouldIPrint, Color.White, Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, toDraw);
     }
 
-    /// <summary>
-    /// Handle the input during the end of the game. Any interaction
-    /// will result in it reading in the highsSwinGame.
-    /// </summary>
+    /* summary, Handle the input during the end of the game. Any interaction 
+		will result in it reading in the highsSwinGame.
+	*/
     public static void HandleEndOfGameInput()
     {
         if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.VK_RETURN) || SwinGame.KeyTyped(KeyCode.VK_ESCAPE))
