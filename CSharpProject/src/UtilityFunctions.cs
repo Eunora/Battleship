@@ -8,8 +8,9 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Security;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using Microsoft.VisualBasic;
+using SwinGameSDK;
 
 // summary, This includes a number of utility methods for drawing and interacting with the Mouse.
 static class UtilityFunctions
@@ -129,13 +130,13 @@ static class UtilityFunctions
 
                 switch (grid.Item(row, col))
                 {
-                    case object _ when TileView.Ship:
+                    case TileView.Ship:
                         {
                             draw = false;
                             break;
                         }
 
-                    case object _ when TileView.Miss:
+                    case TileView.Miss:
                         {
                             if (small)
                                 fillColor = SMALL_MISS;
@@ -144,7 +145,7 @@ static class UtilityFunctions
                             break;
                         }
 
-                    case object _ when TileView.Hit:
+                    case TileView.Hit:
                         {
                             if (small)
                                 fillColor = SMALL_HIT;
@@ -239,23 +240,23 @@ static class UtilityFunctions
     {
         switch (CurrentState)
         {
-            case object _ when GameState.ViewingMainMenu:
-            case object _ when GameState.ViewingGameMenu:
-            case object _ when GameState.AlteringSettings:
-            case object _ when GameState.ViewingHighScores:
+            case GameState.ViewingMainMenu:
+            case GameState.ViewingGameMenu:
+            case GameState.AlteringSettings:
+            case GameState.ViewingHighScores:
                 {
                     SwinGame.DrawBitmap(GameImage("Menu"), 0, 0);
                     break;
                 }
 
-            case object _ when GameState.Discovering:
-            case object _ when GameState.EndingGame:
+            case GameState.Discovering:
+            case GameState.EndingGame:
                 {
                     SwinGame.DrawBitmap(GameImage("Discovery"), 0, 0);
                     break;
                 }
 
-            case object _ when GameState.Deploying:
+            case GameState.Deploying:
                 {
                     SwinGame.DrawBitmap(GameImage("Deploy"), 0, 0);
                     break;

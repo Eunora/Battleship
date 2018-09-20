@@ -62,11 +62,12 @@ public class SeaGrid : ISeaGrid
         {
             foreach(Ship s in _Ships.Values)
             {
-                if(!s.Deployed)
+                if(!s.IsDeployed)
                 {
                     return false;
                 }
             }
+            return false;
         }
     }
 

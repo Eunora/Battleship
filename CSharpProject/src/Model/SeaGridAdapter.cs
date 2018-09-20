@@ -1,16 +1,5 @@
 ﻿// <summary>The SeaGridAdapter allows for the change in a sea grid view. Whenever a ship is presented it changes the view into a sea tile instead of a ship tile.
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Security;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.VisualBasic;
 
 public class SeaGridAdapter : ISeaGrid
 {
@@ -32,22 +21,20 @@ public class SeaGridAdapter : ISeaGrid
         Changed?.Invoke(this, e);
     }
 
-
-    // <summary> Changes the discovery grid. Where there is a ship we will sea water
-    // <param name="x">tile x coordinate</param>
-    // <param name="y">tile y coordinate</param>
-    // <returns>a tile, either what it actually is, or if it was a ship then return a sea tile</returns>
-    public TileView Item
+    /// <summary>
+    /// Changes the discovery grid. Where there is a ship we will sea water
+    /// </summary>
+    /// <param name="x">tile x coordinate</param>
+    /// <param name="y">tile y coordinate</param>
+    /// <returns>a tile, either what it actually is, or if it was a ship then return a sea tile</returns>
+    public TileView Item(int x, int y)
     {
-        get
-        {
             TileView result = _MyGrid.Item(x, y);
 
             if (result == TileView.Ship)
                 return TileView.Sea;
             else
                 return result;
-        }
     }
 
     // <summary> Indicates that the grid has been changed
