@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 using Microsoft.VisualBasic;
 using System;
@@ -26,3 +27,25 @@ public enum ShipName
 //Twitter: @telerik
 //Facebook: facebook.com/telerik
 //=======================================================
+=======
+//The names of all of the ships in the game
+public enum ShipName
+{
+	None = 0,
+
+
+	Tug = 1,
+
+
+	Submarine = 2,
+
+
+	Destroyer = 3,
+
+
+	Battleship = 4,
+
+
+	AircraftCarrier = 5,
+}
+>>>>>>> change-comment
