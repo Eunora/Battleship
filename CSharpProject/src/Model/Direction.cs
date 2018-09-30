@@ -1,9 +1,14 @@
-﻿public enum Direction
+
+
+//The direction the ship can be oriented.
+
+
+public enum Direction
 {
-    // <summary> The ship is oriented left/right
-    LeftRight,
 
-    // <summary> The ship is oriented up/down
-    UpDown
+
+	LeftRight,
+
+
+	UpDown,
 }
-
