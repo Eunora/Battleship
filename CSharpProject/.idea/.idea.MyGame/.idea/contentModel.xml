@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\SamBy\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\SamBy\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_MyGame.-963859414.00" t="ExcludeRecursive" />
+    <e p="C:\Users\SamBy\Documents\Dev Project Code\Battleship\CSharpProject" t="IncludeRecursive">
+      <e p="app.config" t="Include" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="lib" t="Include">
+        <e p="jpeg.dll" t="Include" />
+        <e p="libfreetype-6.dll" t="Include" />
+        <e p="libogg-0.dll" t="Include" />
+        <e p="libpng12-0.dll" t="Include" />
+        <e p="libpng13.dll" t="Include" />
+        <e p="libtiff-3.dll" t="Include" />
+        <e p="libvorbis-0.dll" t="Include" />
+        <e p="libvorbisfile-3.dll" t="Include" />
+        <e p="mikmod.dll" t="Include" />
+        <e p="ogg.dll" t="Include" />
+        <e p="SDL.dll" t="Include" />
+        <e p="SDL_gfx.dll" t="Include" />
+        <e p="SDL_image.dll" t="Include" />
+        <e p="SDL_mixer.dll" t="Include" />
+        <e p="SDL_net.dll" t="Include" />
+        <e p="SDL_ttf.dll" t="Include" />
+        <e p="SGSDK.dll" t="Include" />
+        <e p="smpeg.dll" t="Include" />
+        <e p="SwinGame.dll" t="Include" />
+        <e p="zlib1.dll" t="Include" />
+      </e>
+      <e p="MyGame.csproj" t="IncludeRecursive" />
+      <e p="MyGame.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Properties" t="Include">
+        <e p="AssemblyInfo.cs" t="Include" />
+      </e>
+      <e p="Resources" t="Include">
+        <e p="animations" t="Include">
+          <e p="splash.txt" t="Include" />
+          <e p="startup.txt" t="Include" />
+        </e>
+        <e p="bundles" t="Include">
+          <e p="FileDialog.txt" t="Include" />
+          <e p="splash.txt" t="Include" />
+        </e>
+        <e p="fonts" t="Include">
+          <e p="arial.ttf" t="Include" />
+          <e p="cour.ttf" t="Include" />
+          <e p="ffaccess.ttf" t="Include" />
+          <e p="maven_pro_regular.ttf" t="Include" />
+        </e>
+        <e p="highscores.txt" t="Include" />
+        <e p="images" t="Include">
+          <e p="deploy.jpg" t="Include" />
+          <e p="deploy_button_hl.png" t="Include" />
+          <e p="deploy_dir_button_horiz.png" t="Include" />
+          <e p="deploy_dir_button_vert.png" t="Include" />
+          <e p="deploy_play_button.png" t="Include" />
+          <e p="deploy_randomize_button.png" t="Include" />
+          <e p="discover.jpg" t="Include" />
+          <e p="explosion.png" t="Include" />
+          <e p="fdFile.png" t="Include" />
+          <e p="fdFolder.png" t="Include" />
+          <e p="FileDialog_Active.png" t="Include" />
+          <e p="FileDialog_Background.png" t="Include" />
+          <e p="FileDialog_Inactive.png" t="Include" />
+          <e p="FileDialog_Scroll.png" t="Include" />
+          <e p="FileDialog_ScrollSmall.png" t="Include" />
+          <e p="loader_empty.png" t="Include" />
+          <e p="loader_full.png" t="Include" />
+          <e p="main_page.jpg" t="Include" />
+          <e p="ship_deploy_horiz_1.png" t="Include" />
+          <e p="ship_deploy_horiz_2.png" t="Include" />
+          <e p="ship_deploy_horiz_3.png" t="Include" />
+          <e p="ship_deploy_horiz_4.png" t="Include" />
+          <e p="ship_deploy_horiz_5.png" t="Include" />
+          <e p="ship_deploy_vert_1.png" t="Include" />
+          <e p="ship_deploy_vert_2.png" t="Include" />
+          <e p="ship_deploy_vert_3.png" t="Include" />
+          <e p="ship_deploy_vert_4.png" t="Include" />
+          <e p="ship_deploy_vert_5.png" t="Include" />
+          <e p="splash.png" t="Include" />
+          <e p="SplashBack.png" t="Include" />
+          <e p="Swinburne.jpg" t="Include" />
+          <e p="SwinGameAni.jpg" t="Include" />
+          <e p="SwinGameAni.png" t="Include" />
+        </e>
+        <e p="panels" t="Include">
+          <e p="FileDialog.txt" t="Include" />
+        </e>
+        <e p="sounds" t="Include">
+          <e p="error.wav" t="Include" />
+          <e p="hit.wav" t="Include" />
+          <e p="horrordrone.mp3" t="Include" />
+          <e p="lose.wav" t="Include" />
+          <e p="sink.wav" t="Include" />
+          <e p="SwinGameStart.ogg" t="Include" />
+          <e p="SwinGameStart.wav" t="Include" />
+          <e p="watershot.wav" t="Include" />
+          <e p="winner.wav" t="Include" />
+        </e>
+        <e p="SwinGame.icns" t="Include" />
+        <e p="SwinGame.ico" t="Include" />
+      </e>
+      <e p="src" t="Include">
+        <e p="DeploymentController.cs" t="Include" />
+        <e p="DiscoveryController.cs" t="Include" />
+        <e p="EndingGameController.cs" t="Include" />
+        <e p="GameController.cs" t="Include" />
+        <e p="GameLogic.cs" t="Include" />
+        <e p="GameResources.cs" t="Include" />
+        <e p="GameState.cs" t="Include" />
+        <e p="HighScoreController.cs" t="Include" />
+        <e p="MenuController.cs" t="Include" />
+        <e p="Model" t="Include">
+          <e p="AIHardPlayer.cs" t="Include" />
+          <e p="AIMediumPlayer.cs" t="Include" />
+          <e p="AIOption.cs" t="Include" />
+          <e p="AIPlayer.cs" t="Include" />
+          <e p="AttackResult.cs" t="Include" />
+          <e p="BattleShipsGame.cs" t="Include" />
+          <e p="Direction.cs" t="Include" />
+          <e p="ISeaGrid.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
+          <e p="ResultOfAttack.cs" t="Include" />
+          <e p="SeaGrid.cs" t="Include" />
+          <e p="SeaGridAdapter.cs" t="Include" />
+          <e p="Ship.cs" t="Include" />
+          <e p="ShipName.cs" t="Include" />
+          <e p="Tile.cs" t="Include" />
+          <e p="TileView.cs" t="Include" />
+        </e>
+        <e p="UtilityFunctions.cs" t="Include" />
+      </e>
+    </e>
+  </component>
+</project>
