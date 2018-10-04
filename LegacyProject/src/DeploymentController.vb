@@ -1,9 +1,6 @@
 Imports SwinGameSDK
 
-''' <summary>
-''' The DeploymentController controls the players actions
-''' during the deployment phase.
-''' </summary>
+ summary, The DeploymentController controls the players actions during the deployment phase.
 Module DeploymentController
     Private Const SHIPS_TOP As Integer = 98
     Private Const SHIPS_LEFT As Integer = 20
