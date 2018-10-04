@@ -57,7 +57,7 @@ public class AIEasyPlayer : AIPlayer
     // '' <param name="column">the generated column</param>
     private void SearchCoords(ref int row, ref int column)
     {
-        row = _random.Next(0, EnemyGrid.Height);
-        column = _random.Next(0, EnemyGrid.Width);
+        row = _Random.Next(0, EnemyGrid.Height);
+        column = _Random.Next(0, EnemyGrid.Width);
     }
 }
