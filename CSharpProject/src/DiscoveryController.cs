@@ -7,13 +7,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using SwinGameSDK;
 
-<<<<<<< HEAD
 /// <summary>
 /// The battle phase is handled by the DiscoveryController.
 /// </summary>
-=======
-// summary, The battle phase is handled by the DiscoveryController.
->>>>>>> change-comment
 static class DiscoveryController
 {
 

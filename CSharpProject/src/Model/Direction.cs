@@ -1,5 +1,4 @@
 
-<<<<<<< HEAD
 using Microsoft.VisualBasic;
 using System;
 using System.Collections;
@@ -28,18 +27,3 @@ public enum Direction
 //Twitter: @telerik
 //Facebook: facebook.com/telerik
 //=======================================================
-=======
-
-//The direction the ship can be oriented.
-
-
-public enum Direction
-{
-
-
-	LeftRight,
-
-
-	UpDown,
-}
->>>>>>> change-comment

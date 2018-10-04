@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 using Microsoft.VisualBasic;
 using System;
@@ -14,13 +13,6 @@ using System.Diagnostics;
 /// <remarks>
 /// Deployment information is supplied to allow ships to be drawn.
 /// </remarks>
-=======
-using System.Collections.Generic;
-//A Ship has all the details about itself. For example the shipname,
-//size, number of hits taken and the location. Its able to add tiles,
-//remove, hits taken and if its deployed and destroyed
-//Deployment information is supplied to allow ships to be drawn.
->>>>>>> change-comment
 public class Ship
 {
 	private ShipName _shipName;
@@ -29,7 +21,6 @@ public class Ship
 	private List<Tile> _tiles;
 	private int _row;
 	private int _col;
-<<<<<<< HEAD
 
 	private Direction _direction;
 	/// <summary>
@@ -43,29 +34,10 @@ public class Ship
 				return "Aircraft Carrier";
 			}
 
-=======
-	private Direction _direction;
-
-
-	//The type of ship
-	//<value>The type of ship</value>
-	//<returns>The type of ship</returns>
-	public string Name
-	{
-		get
-		{
-			if (_shipName == ShipName.AircraftCarrier)
-			{
-				return "Aircraft Carrier";
-			}
-
-
->>>>>>> change-comment
 			return _shipName.ToString();
 		}
 	}
 
-<<<<<<< HEAD
 	/// <summary>
 	/// The number of cells that this ship occupies.
 	/// </summary>
@@ -102,60 +74,11 @@ public class Ship
 		get { return _direction; }
 	}
 
-=======
-
-	public int Size
-	{
-		get
-		{
-			return _sizeOfShip;
-		}
-	}
-
-
-	public int Hits
-	{
-		get
-		{
-			return _hitsTaken;
-		}
-	}
-
-
-	public int Row
-	{
-		get
-		{
-			return _row;
-		}
-	}
-
-
-	public int Column
-	{
-		get
-		{
-			return _col;
-		}
-	}
-
-
-	public Direction Direction
-	{
-		get
-		{
-			return _direction;
-		}
-	}
-
-
->>>>>>> change-comment
 	public Ship(ShipName ship)
 	{
 		_shipName = ship;
 		_tiles = new List<Tile>();
 
-<<<<<<< HEAD
 		//gets the ship size from the enumarator
 		_sizeOfShip = (int) _shipName;
 	}
@@ -164,22 +87,11 @@ public class Ship
 	/// Add tile adds the ship tile
 	/// </summary>
 	/// <param name="tile">one of the tiles the ship is on</param>
-=======
-
-		// gets the ship size from the enumarator
-		_sizeOfShip = (int)(_shipName);
-	}
-
-
-	//Add tile adds the ship tile
-	//<param name="tile">one of the tiles the ship is on</param>
->>>>>>> change-comment
 	public void AddTile(Tile tile)
 	{
 		_tiles.Add(tile);
 	}
 
-<<<<<<< HEAD
 	/// <summary>
 	/// Remove clears the tile back to a sea tile
 	/// </summary>
@@ -228,52 +140,3 @@ public class Ship
 //Twitter: @telerik
 //Facebook: facebook.com/telerik
 //=======================================================
-=======
-
-	//Remove clears the tile back to a sea tile
-	public void Remove()
-	{
-		foreach (Tile tile in _tiles)
-		{
-			tile.ClearShip();
-		}
-
-
-		_tiles.Clear();
-	}
-
-
-	public void Hit()
-	{
-		_hitsTaken = (_hitsTaken + 1);
-	}
-
-
-	//IsDeployed returns if the ships is deployed, if its deplyed it has more than
-	//0 tiles
-	public bool IsDeployed
-	{
-		get
-		{
-			return _tiles.Count > 0;
-		}
-	}
-
-
-	public bool IsDestroyed
-	{
-		get
-		{
-			return Hits == Size;
-		}
-	}
-
-
-	internal void Deployed(Direction direction, int row, int col)
-	{
-		_row = row;
-		_col = col;
-		_direction = direction;
-	}
-}
->>>>>>> change-comment
