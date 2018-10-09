@@ -7,17 +7,14 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using SwinGameSDK;
 
-/// <summary>
-/// The EndingGameController is responsible for managing the interactions at the end
-/// of a game.
-/// </summary>
+/* summary, The EndingGameController is responsible for managing the
+	interactions at the end of a game.
+*/
 
 static class EndingGameController
 {
 
-	/// <summary>
-	/// Draw the end of the game screen, shows the win/lose state
-	/// </summary>
+    // summary, Draw the end of the game screen, shows the win/lose state
 	public static void DrawEndOfGame()
 	{
 		UtilityFunctions.DrawField(GameController.ComputerPlayer.PlayerGrid, GameController.ComputerPlayer, true);
@@ -30,10 +27,9 @@ static class EndingGameController
 		}
 	}
 
-	/// <summary>
-	/// Handle the input during the end of the game. Any interaction
-	/// will result in it reading in the highsSwinGame.
-	/// </summary>
+	/* summary, Handle the input during the end of the game. Any interaction 
+		will result in it reading in the highsSwinGame.
+	*/
 	public static void HandleEndOfGameInput()
 	{
 		if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.vk_RETURN) || SwinGame.KeyTyped(KeyCode.vk_ESCAPE)) {

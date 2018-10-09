@@ -7,19 +7,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using SwinGameSDK;
 
-/// <summary>
-/// The battle phase is handled by the DiscoveryController.
-/// </summary>
+// summary, The battle phase is handled by the DiscoveryController.
 static class DiscoveryController
 {
 
-	/// <summary>
-	/// Handles input during the discovery phase of the game.
-	/// </summary>
-	/// <remarks>
-	/// Escape opens the game menu. Clicking the mouse will
-	/// attack a location.
-	/// </remarks>
+	// summary, Handles input during the discovery phase of the game.
+	// remarks, Escape opens the game menu. Clicking the mouse will attack a location.
 	public static void HandleDiscoveryInput()
 	{
 		if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE)) {
@@ -31,9 +24,7 @@ static class DiscoveryController
 		}
 	}
 
-	/// <summary>
-	/// Attack the location that the mouse if over.
-	/// </summary>
+	// summary, Attack the location that the mouse if over.
 	private static void DoAttack()
 	{
 		Point2D mouse = default(Point2D);
@@ -53,9 +44,7 @@ static class DiscoveryController
 		}
 	}
 
-	/// <summary>
-	/// Draws the game during the attack phase.
-	/// </summary>s
+	// summary, Draws the game during the attack phase.
 	public static void DrawDiscovery()
 	{
 		const int SCORES_LEFT = 172;
